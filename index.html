@@ -6,14 +6,12 @@
     <title>PythonXYZ - Robux Gen</title>
     <style>
         body {
-            background-color: black;
+            background-image: url('https://media.giphy.com/media/3o6Zt8X3EQQh2tIuKs/giphy.gif'); /* خلفية داكنة */
+            background-size: cover;
             color: white;
             text-align: center;
             font-family: Arial, sans-serif;
             animation: rgbGlow 2s infinite alternate;
-            background-image: url('https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif'); /* خلفية GIF */
-            background-size: cover;
-            background-position: center;
         }
         @keyframes rgbGlow {
             0% { background-color: red; }
@@ -42,6 +40,7 @@
         .discord-icon {
             width: 50px;
             height: 50px;
+            margin-top: 20px;
             cursor: pointer;
         }
     </style>
@@ -53,22 +52,35 @@
     <button class="button" onclick="showPremium()">Premium</button>
     <button class="button" onclick="showUltimate()">Ultimate</button>
 
-    <div>
-        <a href="https://discord.gg/pbmXNruUdX" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Discord_logo.svg" class="discord-icon" alt="Discord Logo">
-        </a>
-    </div>
-
     <div id="output" style="margin-top: 20px;"></div>
+
+    <!-- Discord Icon (الآن يظهر بشكل صحيح) -->
+    <a href="https://discord.gg/pbmXNruUdX" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Discord_logo_2023.svg" class="discord-icon" alt="Discord Logo">
+    </a>
 
     <script>
         function showLogin() {
-            // عند الضغط على "Login" ، لا يمكن الكتابة
-            document.getElementById('output').innerHTML = "<p>USER = <br> PASS = </p><input type='text' disabled><br><button onclick='alert(\"You cannot type in login mode!\")'>OK</button>";
+            document.getElementById('output').innerHTML = `
+                <p>USER = <input type="text" id="username" placeholder="Enter Username"></p>
+                <p>PASS = <input type="password" id="password" placeholder="Enter Password"></p>
+                <button onclick="submitLogin()">Submit</button>
+            `;
+        }
+
+        function submitLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username && password) {
+                document.getElementById('output').innerHTML = "<p>Welcome, " + username + "!</p>";
+            } else {
+                document.getElementById('output').innerHTML = "<p>Please fill in both fields.</p>";
+            }
         }
 
         function showFree() {
-            document.getElementById('output').innerHTML = ` 
+            document.getElementById('output').innerHTML = `
                 <p>ENTER YOUR ROBLOX USERNAME:</p>
                 <input type="text" id="robloxUser"><br>
                 <button onclick='showUserOnly()'>I can't give Password</button>
@@ -81,7 +93,7 @@
         }
 
         function chooseRobux() {
-            document.getElementById('output').innerHTML = ` 
+            document.getElementById('output').innerHTML = `
                 <p>Choose Robux Amount:</p>
                 <button onclick='robuxWait(5, "Failed!")'>1-100 Robux</button>
                 <button onclick='robuxWait(20, "Failed, Retry Again!")'>101-1000 Robux</button>
