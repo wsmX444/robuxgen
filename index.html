@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PythonXYZ - Robux Gen</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            animation: rgbGlow 2s infinite alternate;
+            background-image: url('https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif'); /* خلفية GIF */
+            background-size: cover;
+            background-position: center;
+        }
+        @keyframes rgbGlow {
+            0% { background-color: red; }
+            50% { background-color: blue; }
+            100% { background-color: black; }
+        }
+        .rgb-text {
+            font-size: 2em;
+            font-weight: bold;
+            color: cyan;
+        }
+        .button {
+            padding: 15px;
+            margin: 10px;
+            background: linear-gradient(45deg, red, blue);
+            color: white;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: linear-gradient(45deg, blue, red);
+        }
+        .hidden { display: none; }
+        .discord-icon {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="rgb-text">Python XYZ - Robux Generator</h1>
+    <button class="button" onclick="showLogin()">Login</button>
+    <button class="button" onclick="showFree()">Free</button>
+    <button class="button" onclick="showPremium()">Premium</button>
+    <button class="button" onclick="showUltimate()">Ultimate</button>
+
+    <div>
+        <a href="https://discord.gg/pbmXNruUdX" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Discord_logo.svg" class="discord-icon" alt="Discord Logo">
+        </a>
+    </div>
+
+    <div id="output" style="margin-top: 20px;"></div>
+
+    <script>
+        function showLogin() {
+            // عند الضغط على "Login" ، لا يمكن الكتابة
+            document.getElementById('output').innerHTML = "<p>USER = <br> PASS = </p><input type='text' disabled><br><button onclick='alert(\"You cannot type in login mode!\")'>OK</button>";
+        }
+
+        function showFree() {
+            document.getElementById('output').innerHTML = ` 
+                <p>ENTER YOUR ROBLOX USERNAME:</p>
+                <input type="text" id="robloxUser"><br>
+                <button onclick='showUserOnly()'>I can't give Password</button>
+                <button onclick='chooseRobux()'>Continue</button>
+            `;
+        }
+
+        function showUserOnly() {
+            document.getElementById('output').innerHTML = "<p>ENTER YOUR ROBLOX USERNAME ONLY:</p>";
+        }
+
+        function chooseRobux() {
+            document.getElementById('output').innerHTML = ` 
+                <p>Choose Robux Amount:</p>
+                <button onclick='robuxWait(5, "Failed!")'>1-100 Robux</button>
+                <button onclick='robuxWait(20, "Failed, Retry Again!")'>101-1000 Robux</button>
+                <button onclick='robuxWait(60, "Failed, Try Again Later!")'>1001-5000 Robux</button>
+                <button onclick='premiumNeeded()'>5001-100K Robux</button>
+            `;
+        }
+
+        function robuxWait(time, message) {
+            document.getElementById('output').innerHTML = "<p>Please Wait... Processing</p>";
+            setTimeout(() => {
+                document.getElementById('output').innerHTML = `<p>${message}</p>`;
+            }, time * 1000);
+        }
+
+        function premiumNeeded() {
+            document.getElementById('output').innerHTML = "<p>You Need Premium for this!</p>";
+        }
+
+        function showPremium() {
+            document.getElementById('output').innerHTML = "<p>Please Invite me in My Discord Account = wassimxyz and Buy !!</p>";
+        }
+
+        function showUltimate() {
+            document.getElementById('output').innerHTML = "<p>Please Invite me in My Discord Account = wassimxyz and Buy !!</p>";
+        }
+    </script>
+</body>
+</html>
