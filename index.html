@@ -6,7 +6,7 @@
     <title>PythonXYZ - Robux Gen</title>
     <style>
         body {
-            background-image: url('https://media.giphy.com/media/3o6Zt8X3EQQh2tIuKs/giphy.gif'); /* خلفية داكنة */
+            background-image: url('https://media.giphy.com/media/1lDw8brA1mepQ8DxdX/giphy.gif'); /* صورة داكنة مع كتابة للهكر */
             background-size: cover;
             color: white;
             text-align: center;
@@ -54,7 +54,7 @@
 
     <div id="output" style="margin-top: 20px;"></div>
 
-    <!-- Discord Icon (الآن يظهر بشكل صحيح) -->
+    <!-- Discord Icon -->
     <a href="https://discord.gg/pbmXNruUdX" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Discord_logo_2023.svg" class="discord-icon" alt="Discord Logo">
     </a>
@@ -72,10 +72,11 @@
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
-            if (username && password) {
+            // الحسابات الصحيحة
+            if ((username === '1412' && password === '1412') || (username === '147' && password === '147')) {
                 document.getElementById('output').innerHTML = "<p>Welcome, " + username + "!</p>";
             } else {
-                document.getElementById('output').innerHTML = "<p>Please fill in both fields.</p>";
+                document.getElementById('output').innerHTML = "<p>Invalid credentials, please try again.</p>";
             }
         }
 
